@@ -1,36 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>IMC</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="calc.png" />
-</head>
-
-<body>
-    <main>
-        <div class="container">
-            <div class="title"> Calculadora - IMC </div>
-            <div class="input">
-                <label>Nome:</label>
-                <input type="text" id='nome'>
-            </div>
-            <div class="input">
-                <label>Altura:</label>
-                <input type="number" id='altura'>
-            </div>
-            <div class="input">
-                <label>Peso:</label>
-                <input type="number" id='peso'>
-            </div>
-            <button id='calcular'>Calcular</button>
-
-            <div class="result" id='resultado'></div>
-        </div>
-    </main>
-    <script src="./imc.js"></script>
-</body>
-
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/calc.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Calculadora IMC</title>
+  </head>
+  <body>
+    <div id="app"></div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
 </html>
