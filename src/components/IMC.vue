@@ -26,7 +26,7 @@
             ></v-text-field>
           </v-col>
           <v-col cols="12">
-            <v-btn @click="calculateBMI" color="primary">Calcular IMC</v-btn>
+            <v-btn @click="handleButtonClick" color="primary">{{ buttonText }}</v-btn>
           </v-col>
           <v-col cols="12" v-if="bmiMessage">
             <v-alert :type="bmiAlertType" dismissible>
@@ -59,6 +59,7 @@ export default defineComponent({
       height: ref<number | null>(null),
       bmiMessage: ref<string>(""),
       bmiAlertType: undefined as AlertType,
+      buttonText: ref<string>("Calcular IMC"),
     };
   },
   methods: {
@@ -82,9 +83,25 @@ export default defineComponent({
           this.bmiMessage = `seu IMC é ${bmiString}. Você está com obesidade.`;
           this.bmiAlertType = "error";
         }
+        this.buttonText = "Fazer novo Cálculo";
       } else {
         this.bmiMessage = "Por favor, insira um peso e uma altura válidos.";
         this.bmiAlertType = "error";
+      }
+    },
+    resetForm() {
+      this.name = "";
+      this.weight = null;
+      this.height = null;
+      this.bmiMessage = "";
+      this.bmiAlertType = undefined;
+      this.buttonText = "Calcular IMC";
+    },
+    handleButtonClick() {
+      if (this.buttonText === "Calcular IMC") {
+        this.calculateBMI();
+      } else {
+        this.resetForm();
       }
     },
   },
@@ -92,7 +109,6 @@ export default defineComponent({
 </script>
 
 <style>
-
 @import url("https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;700&family=Josefin+Sans:wght@400;500;700&family=Roboto:wght@400;500;700&display=swap");
 .v-container {
   max-width: 600px;
@@ -100,20 +116,18 @@ export default defineComponent({
   padding-top: 20px;
 }
 
-.left_collumn{
-  border: 1px solid ;
+.left_collumn {
+  border: 1px solid;
   border-radius: 20px;
 }
-.v-card-title{
+.v-card-title {
   font-family: Baloo 2, sans-serif;
   font-size: 2.5rem !important;
   font-weight: 700;
-
 }
 
 .backgroundImg {
   max-width: 100%;
   height: auto;
 }
-
 </style>
