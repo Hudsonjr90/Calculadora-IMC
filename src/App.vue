@@ -15,5 +15,6 @@ import IMC from './components/IMC.vue';
   font-family: "Baloo 2", sans-serif;
   text-align: center;
   margin-top: 60px;
+  
 }
 </style>
